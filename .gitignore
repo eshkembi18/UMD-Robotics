@@ -1,0 +1,22 @@
+# Built site (CI rebuilds it)
+site/
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+# Never commit these
+*.pem
+id_rsa*
+id_ed25519*
+.env
+*.token
+# Large artifacts belong on Hugging Face / shared storage, not git
+*.mp4
+*.mov
+*.safetensors
+*.ckpt
+*.pt
+*.parquet
+outputs/
+.DS_Store

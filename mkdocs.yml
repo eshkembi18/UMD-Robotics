@@ -1,0 +1,208 @@
+# ---------------------------------------------------------------
+# Generalist Robotics — documentation site configuration
+# Content lives in docs/. This file only controls the site itself.
+# Adding a page? Create the .md file AND add it to `nav:` below.
+# ---------------------------------------------------------------
+site_name: Generalist Robotics
+site_description: SO-101 / LeRobot documentation and knowledge base — UM-Dearborn Senior Design
+site_url: https://eshkembi18.github.io/UMD-Robotics/   # [TEAM VERIFICATION REQUIRED]
+repo_url: https://github.com/eshkembi18/UMD-Robotics
+repo_name: UMD-Robotics
+edit_uri: edit/main/docs/
+copyright: Generalist Robotics Senior Design Team — University of Michigan–Dearborn
+
+theme:
+  name: material
+  language: en
+  icon:
+    logo: material/robot-industrial
+    repo: fontawesome/brands/github
+  favicon: assets/images/favicon.svg
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: cyan
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.path          # breadcrumbs
+    - navigation.footer        # previous / next links
+    - navigation.top
+    - navigation.tracking
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.action.edit
+    - content.tabs.link
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets:
+      base_path: ["."]
+      check_paths: true        # build fails if an included file is missing
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+validation:
+  nav:
+    omitted_files: warn
+    not_found: warn
+  links:
+    not_found: warn
+    anchors: warn
+    absolute_links: info
+    unrecognized_links: warn
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/eshkembi18/UMD-Robotics
+
+nav:
+  - Home: index.md
+  - Quickstart:
+      - quickstart/index.md
+      - 1. Prerequisites & Tools: quickstart/01-prerequisites.md
+      - 2. Hardware Assembly: quickstart/02-assembly.md
+      - 3. Servo ID Assignment: quickstart/03-servo-ids.md
+      - 4. Wiring & Power Check: quickstart/04-wiring-power.md
+      - 5. Leader–Follower Config: quickstart/05-leader-follower.md
+      - 6. Software Install: quickstart/06-software-install.md
+      - 7. Calibration: quickstart/07-calibration.md
+      - 8. First Teleoperation: quickstart/08-teleoperation.md
+      - 9. First Dataset Recording: quickstart/09-first-recording.md
+      - 10. Verification Checklist: quickstart/10-verification.md
+  - Hardware:
+      - hardware/index.md
+      - Leader & Follower: hardware/leader-follower.md
+      - Bill of Materials: hardware/bom.md
+      - Mechanical Assembly: hardware/assembly.md
+      - 3D-Printed Components: hardware/printed-parts.md
+      - Servo Configuration: hardware/servos.md
+      - Power Distribution: hardware/power.md
+      - Wiring Diagrams: hardware/wiring.md
+      - Calibration: hardware/calibration.md
+      - Hardware Safety: hardware/safety.md
+      - Maintenance & Replacement: hardware/maintenance.md
+  - Software & ML:
+      - software/index.md
+      - Foundations:
+          - LeRobot Overview: software/lerobot-overview.md
+          - Python Environment: software/python-environment.md
+          - Dependency Management: software/dependencies.md
+      - Robot Control:
+          - Robot Configuration: software/robot-config.md
+          - Hardware Communication: software/hardware-communication.md
+          - Teleoperation Workflow: software/teleoperation.md
+      - Data:
+          - Dataset Collection: software/dataset-collection.md
+          - Dataset Structure: software/dataset-structure.md
+          - Data Preprocessing: software/preprocessing.md
+      - Learning:
+          - Policy Training: software/policy-training.md
+          - Checkpoint Management: software/checkpoints.md
+          - Inference & Deployment: software/inference-deployment.md
+      - Testing & Debugging: software/testing-debugging.md
+  - NCSA Delta:
+      - delta/index.md
+      - 1. Access & SSH: delta/access.md
+      - 2. Storage: delta/storage.md
+      - 3. Environment: delta/environment.md
+      - 4. Moving Data: delta/data-transfer.md
+      - 5. Submitting Jobs: delta/jobs.md
+      - 6. SLURM Job Template: delta/slurm-template.md
+      - 7. Monitoring & Failed Jobs: delta/monitoring.md
+      - 8. Checkpoints & Reproducibility: delta/checkpoints-reproduce.md
+  - Experiments:
+      - experiments/index.md
+      - Evaluation Protocol: experiments/protocol.md
+      - Results Summary: experiments/results.md
+  - Troubleshooting:
+      - troubleshooting/index.md
+      - Mechanical: troubleshooting/mechanical.md
+      - Electrical: troubleshooting/electrical.md
+      - Servo Communication: troubleshooting/servo-communication.md
+      - Calibration: troubleshooting/calibration.md
+      - LeRobot Software: troubleshooting/lerobot-software.md
+      - Teleoperation: troubleshooting/teleoperation.md
+      - Dataset Collection: troubleshooting/dataset-collection.md
+      - Model Training: troubleshooting/model-training.md
+      - GPU Cluster: troubleshooting/gpu-cluster.md
+      - Deployment: troubleshooting/deployment.md
+  - Records:
+      - Decision Log:
+          - decisions/index.md
+          - "ADR-001: XLeRobot as Build Guide": decisions/adr-001-xlerobot-build-guide.md
+          - "ADR-002: NCSA Delta for Training": decisions/adr-002-ncsa-delta-training.md
+          - "ADR-003: MkDocs for Documentation": decisions/adr-003-mkdocs-docs.md
+      - Weekly Log:
+          - weekly-log/index.md
+          - Fall 2026: weekly-log/fall-2026/index.md
+      - Deliverables:
+          - deliverables/index.md
+          - References: deliverables/references.md
+  - Handoff:
+      - handoff/index.md
+      - Current State: handoff/current-state.md
+      - Access Transfer: handoff/access-transfer.md
+      - Reproducing the Setup: handoff/reproduce.md
+      - Inventory & Locations: handoff/inventory.md
+      - Next Steps: handoff/next-steps.md
+  - Team: team/index.md
+  - Templates:
+      - page-templates/index.md
+      - Procedure Guide: page-templates/procedure.md
+      - Experiment Report: page-templates/experiment.md
+      - Troubleshooting Entry: page-templates/troubleshooting-entry.md
+      - Decision Record (ADR): page-templates/adr.md
+      - Weekly Meeting: page-templates/weekly-meeting.md
